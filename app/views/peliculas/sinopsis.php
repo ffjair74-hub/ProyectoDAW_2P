@@ -5,23 +5,24 @@
     <title>Sinopsis - Transformers</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <link rel="stylesheet" href="/Proyecto_DAW/css/style.css">
-    <link rel="stylesheet" href="/Proyecto_DAW/css/sinopsis.css">
+    <link rel="stylesheet" href="/Proyecto_DAW/public/css/style.css">
+    <link rel="stylesheet" href="/Proyecto_DAW/public/css/sinopsis.css">
 </head>
 
 <body>
 
 <header class="header">
     <nav class="nav">
-        <a class="brand" href="/Proyecto_DAW/index.php">Transformers</a>
+        <a class="brand" href="/Proyecto_DAW/public/index.php">Transformers</a>
 
         <ul class="nav-list">
-            <li><a href="/Proyecto_DAW/index.php">Inicio</a></li>
-            <li><a href="/Proyecto_DAW/index.php#Galeria">Galería De Sagas</a></li>
+            <li><a href="/Proyecto_DAW/public/index.php">Inicio</a></li>
+            <li><a href="/Proyecto_DAW/public/index.php#Galeria">Galería</a></li>
             <li><a href="sinopsis.php">Sinopsis</a></li>
             <li><a href="reparto.php">Reparto</a></li>
-            <li><a href="/Proyecto_DAW/index.php#contacto">Contacto</a></li>
-        </ul>
+            <li><a href="/Proyecto_DAW/public/index.php#contacto">Contacto</a></li>
+    </ul>
+
     </nav>
 </header>
 
@@ -37,7 +38,7 @@
 <section class="synopsis-container">
 
     <article class="synopsis-card">
-        <img src="/Proyecto_DAW/imagenes/sinposis/tf1.jpg" alt="Transformers 2007">
+        <img src="/Proyecto_DAW/public/imagenes/sinposis/tf1.jpg" alt="Transformers 2007">
         <div>
             <h2>Transformers (2007)</h2>
             <p>La guerra entre Autobots y Decepticons llega a la Tierra cuando ambos bandos buscan el AllSpark. Sam Witwicky descubre que su automóvil es un robot alienígena que cambiará su destino.</p>
@@ -45,7 +46,7 @@
     </article>
 
     <article class="synopsis-card">
-        <img src="/Proyecto_DAW/imagenes/sinposis/tf2.jpg" alt="Revenge of the Fallen">
+        <img src="/Proyecto_DAW/public/imagenes/sinposis/tf2.jpg" alt="Revenge of the Fallen">
         <div>
             <h2>Transformers: Revenge of the Fallen (2009)</h2>
             <p>Tras la caída de Megatron, un antiguo Decepticon despierta y amenaza a la humanidad. Sam comienza a tener visiones conectadas al origen de los Transformers.</p>
@@ -53,7 +54,7 @@
     </article>
 
     <article class="synopsis-card">
-        <img src="/Proyecto_DAW/imagenes/sinposis/tf3.jpg" alt="Dark of the Moon">
+        <img src="/Proyecto_DAW/public/imagenes/sinposis/tf3.jpg" alt="Dark of the Moon">
         <div>
             <h2>Transformers: Dark of the Moon (2011)</h2>
             <p>Una nave Cybertroniana oculta en la Luna desencadena una conspiración que involucra a humanos traidores. Optimus Prime enfrenta una de sus batallas más oscuras.</p>
@@ -61,7 +62,7 @@
     </article>
 
     <article class="synopsis-card">
-        <img src="/Proyecto_DAW/imagenes/sinposis/tf4.jpg" alt="Age of Extinction">
+        <img src="/Proyecto_DAW/public/imagenes/sinposis/tf4.jpg" alt="Age of Extinction">
         <div>
             <h2>Transformers: Age of Extinction (2014)</h2>
             <p>Años después de la batalla de Chicago, los Autobots son cazados. Cade Yeager encuentra a un debilitado Optimus Prime y desata una nueva amenaza con los Dinobots.</p>
@@ -69,7 +70,7 @@
     </article>
 
     <article class="synopsis-card">
-        <img src="/Proyecto_DAW/imagenes/sinposis/tf5.jpg" alt="The Last Knight">
+        <img src="/Proyecto_DAW/public/imagenes/sinposis/tf5.jpg" alt="The Last Knight">
         <div>
             <h2>Transformers: The Last Knight (2017)</h2>
             <p>La historia de los Transformers se conecta con leyendas del Rey Arturo. Optimus es manipulado por Quintessa y la Tierra está en riesgo total.</p>
@@ -77,7 +78,7 @@
     </article>
 
     <article class="synopsis-card">
-        <img src="/Proyecto_DAW/imagenes/sinposis/tf6.jpg" alt="Bumblebee 2018">
+        <img src="/Proyecto_DAW/public/imagenes/sinposis/tf6.jpg" alt="Bumblebee 2018">
         <div>
             <h2>Bumblebee (2018)</h2>
             <p>En 1987, Bumblebee llega a la Tierra huyendo de los Decepticons. Herido y sin memoria, es encontrado por Charlie, una joven que descubre que su viejo Volkswagen Beetle es en realidad un Autobot. Juntos intentan proteger al planeta mientras el pequeño guerrero amarillo recuerda su misión original.</p>
@@ -85,7 +86,7 @@
     </article>
 
     <article class="synopsis-card">
-        <img src="/Proyecto_DAW/imagenes/sinposis/tf7.jpg" alt="Transformers Rise of the Beasts">
+        <img src="/Proyecto_DAW/public/imagenes/sinposis/tf7.jpg" alt="Transformers Rise of the Beasts">
         <div>
             <h2>Transformers: Rise of the Beasts (2023)</h2>
             <p>Los Autobots se unen a los Maximals cuando una antigua amenaza conocida como Unicron llega para consumir la Tierra. Noah y Elena, dos humanos involucrados accidentalmente en el conflicto, ayudan a Optimus Prime y Optimus Primal a detener a los Terrorcons antes de que el planeta sea destruido.</p>
