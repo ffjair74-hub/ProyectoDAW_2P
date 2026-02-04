@@ -26,7 +26,7 @@ class Usuario
 
         $stmt = $this->conn->prepare($query);
 
-        // Limpiamos los datos
+        
         $this->nombre = htmlspecialchars(strip_tags($this->nombre));
         $this->apellido = htmlspecialchars(strip_tags($this->apellido));
         $this->correo = htmlspecialchars(strip_tags($this->correo));
@@ -96,6 +96,6 @@ class Usuario
         $stmt->bindParam(":correo", $this->correo);
         $stmt->execute();
 
-        return $stmt->rowCount() > 0; // Devuelve true si ya existe
+        return $stmt->rowCount() > 0;
     }
 }

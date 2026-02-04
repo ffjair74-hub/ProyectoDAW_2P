@@ -50,7 +50,7 @@
 </section>
 
 <script>
-    // Lógica para mostrar/ocultar contraseña
+    // mostrar/ocultar contraseña
     const passInput = document.getElementById('password');
     const toggleBtn = document.getElementById('toggleBtn');
     const eyeIcon = document.getElementById('eyeIcon');

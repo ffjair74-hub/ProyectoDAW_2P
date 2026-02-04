@@ -31,7 +31,7 @@
 </section>
 
 <script>
-    // Script específico para registro con IDs únicos
+    
     const passInputReg = document.getElementById('password_reg');
     const toggleBtnReg = document.getElementById('toggleBtn_reg');
     const eyeIconReg = document.getElementById('eyeIcon_reg');

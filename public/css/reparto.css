@@ -1,5 +1,3 @@
-/* REPARTO.CSS */
-
 .reparto-section {
     background-color: var(--bg-oscuro);
     padding: 60px 20px;
@@ -42,8 +40,8 @@
 
 /* Grid de Actores */
 .actores-grid {
+
     display: grid;
-    /* Cambia fill por fit aquí también */
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
     gap: 25px; 
     justify-content: center;
@@ -55,8 +53,8 @@
     border: 1px solid var(--borde);
     border-radius: 12px;
     overflow: hidden;
-    max-width: 300px; /* Evita que crezca demasiado en pantallas grandes */
-    margin: 0 auto;   /* Centra la tarjeta en su columna */
+    max-width: 300px; 
+    margin: 0 auto;  
     transition: transform 0.3s ease;
 } 
 .actor-card:hover {
@@ -65,12 +63,12 @@
     box-shadow: 0 15px 30px rgba(88, 166, 255, 0.15);
 }
 
-/* Ajuste de imagen - MUY IMPORTANTE */
+/* Ajuste de imagen */
 .actor-card img {
     width: 100%;
-    /* En lugar de un alto fijo, usamos una proporción de retrato clásica (3:4) */
+
     aspect-ratio: 3 / 4; 
-    height: auto; /* El alto se calcula solo basado en el ancho */
+    height: auto; 
     object-fit: cover;
     object-position: top;
     display: block;
@@ -79,12 +77,12 @@
 
 .actor-card:hover img {
     filter: grayscale(0%);
-    transform: scale(1.05); /* Efecto de zoom suave al pasar el mouse */
+    transform: scale(1.05);
 }
 
 .actor-info {
     padding: 15px;
-    text-align: center; /* Se ve más ordenado centrado en tarjetas pequeñas */
+    text-align: center; 
 }
 
 .actor-info h3 {
@@ -100,9 +98,9 @@
 /* --- Ajuste para pantallas pequeñas (Celulares) --- */
 @media (max-width: 720px) {
     .reparto-container {
-        padding: 30px 15px; /* Más equilibrado */
-        margin: 0 10px;    /* Evita que toque los bordes del navegador */
-        width: auto;       /* Permite que el margen funcione */
+        padding: 30px 15px; 
+        margin: 0 10px;    
+        width: auto;       
     }
 
     .reparto-section h1 {
@@ -119,8 +117,8 @@
 
     .titulo-pelicula {
         font-size: 1.3rem;
-        text-align: center; /* CENTRADO CRÍTICO */
-        border-left: none;  /* Quitamos la línea lateral que asimetriza */
+        text-align: center; 
+        border-left: none;  
         border-bottom: 2px solid var(--azul-acero);
         padding-left: 0;
         padding-bottom: 5px;
@@ -129,15 +127,14 @@
     }
 
     .actores-grid {
-        /* Cambiamos a auto-fit para que se centren si hay pocos elementos */
         grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
         gap: 15px;
-        justify-content: center; /* Centra el grupo de tarjetas */
-        justify-items: center;    /* Centra cada tarjeta en su celda */
+        justify-content: center; 
+        justify-items: center;    
     }
 
     .actor-card {
-        max-width: 160px; /* Evita que crezcan demasiado si quedan solas */
+        max-width: 160px; 
         margin: 0 auto;
     }
 }

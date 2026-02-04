@@ -55,11 +55,11 @@ class UsuarioController
             $usuario->correo = $_POST['correo'];
             $usuario->contrasena = $_POST['contrasena'];
 
-            // VALIDACIÓN: ¿Ya existe el correo?
+            
             if ($usuario->existeCorreo()) {
                 $error = "Este correo ya está registrado. Intenta con otro o inicia sesión.";
                 require_once __DIR__ . '/../views/usuarios/registro.php';
-                return; // Detenemos el proceso
+                return; 
             }
 
             if ($usuario->registrar()) {
@@ -78,10 +78,10 @@ class UsuarioController
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
-        session_unset(); // Limpia las variables
-        session_destroy(); // Destruye la sesión
+        session_unset(); 
+        session_destroy();
 
-        // Redirige explícitamente al home para que el router cargue la vista inicial
+        
         header("Location: /Proyecto_DAW/public/index.php?url=home");
         exit;
     }
@@ -89,12 +89,12 @@ class UsuarioController
     // 1. Para mostrar el formulario de perfil
     public function mostrarPerfil()
     {
-        // 1. Buscamos los datos del usuario usando el correo de la sesión
+        
         $u = new Usuario();
         $u->correo = $_SESSION['correo'];
         $datos = $u->buscarPorCorreo();
 
-        // 2. Cargamos la vista pasándole la variable $datos
+       
         require_once __DIR__ . '/../views/usuarios/perfil.php';
     }
 
@@ -104,10 +104,10 @@ class UsuarioController
             $u = new Usuario();
             $u->nombre = $_POST['nombre'];
             $u->apellido = $_POST['apellido'];
-            $u->correo = $_SESSION['correo']; // Usamos el correo de la sesión para identificarlo
+            $u->correo = $_SESSION['correo']; 
 
             if ($u->actualizar()) {
-                $_SESSION['usuario'] = $u->nombre; // Actualizamos el nombre en el header
+                $_SESSION['usuario'] = $u->nombre; 
                 header("Location: /Proyecto_DAW/public/index.php?url=home&actualizado=1");
                 exit;
             } else {
@@ -127,15 +127,15 @@ class UsuarioController
             $u->correo = $_SESSION['correo'];
 
             if ($u->eliminar()) {
-                // 1. Limpiamos la sesión por completo
+                
                 session_unset();
                 session_destroy();
 
-                // 2. Redirigimos al inicio con un mensaje de éxito
+                
                 header("Location: /Proyecto_DAW/public/index.php?url=home&eliminado=1");
                 exit;
             } else {
-                // Si algo falla, lo mandamos al perfil con error
+                
                 header("Location: /Proyecto_DAW/public/index.php?url=perfil&error=1");
                 exit;
             }

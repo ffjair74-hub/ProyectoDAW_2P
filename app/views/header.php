@@ -26,7 +26,7 @@
             <a class="brand" href="/Proyecto_DAW/public/index.php?url=home">Transformers</a>
 
             <?php
-            // Esto debe ir al puro inicio del archivo header.php
+            
             if (session_status() === PHP_SESSION_NONE) {
                 session_start();
             }

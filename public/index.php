@@ -1,5 +1,5 @@
 <?php
-session_start(); // AGREGA ESTO AL PRINCIPIO
+session_start(); 
 require_once __DIR__ . '/../app/controllers/HomeController.php';
 require_once __DIR__ . '/../app/controllers/HomeController.php';
 require_once __DIR__ . '/../app/controllers/PeliculasController.php';

@@ -490,14 +490,14 @@ input:focus {
     align-items: center;
 }
 
-/* Ajuste del input para que el texto no tape el ojo */
+
 .password-field input {
     margin-bottom: 0 !important;
     padding-right: 45px !important;
     width: 100%;
 }
 
-/* El "botón" del ojo */
+
 .toggle-password {
     position: absolute;
     right: 12px;
@@ -551,7 +551,7 @@ input:-webkit-autofill:active {
     transition: background-color 5000s ease-in-out 0s;
 }
 
-/* También para el campo deshabilitado del perfil */
+
 input:disabled {
     background-color: #0d1117 !important;
     opacity: 0.6;

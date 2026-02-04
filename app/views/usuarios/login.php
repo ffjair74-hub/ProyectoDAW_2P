@@ -41,7 +41,7 @@
         const isPassword = passInput.type === 'password';
         passInput.type = isPassword ? 'text' : 'password';
         
-        // Alternar iconos
+       
         eyeIcon.classList.toggle('fa-eye');
         eyeIcon.classList.toggle('fa-eye-slash');
     });
