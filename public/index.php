@@ -44,6 +44,18 @@ switch ($url) {
         $usuario->logout();
         break;
 
+    case 'perfil':
+        $usuario->mostrarPerfil();
+        break;
+
+    case 'perfil_update':
+        $usuario->actualizarPerfil();
+        break;
+
+    case 'eliminar_cuenta':
+        $usuario->eliminarCuenta();
+        break;
+
     default:
         echo "Página no encontrada";
 }

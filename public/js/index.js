@@ -1,76 +1,45 @@
-console.log("Funciona");
+console.log("Funciona index.js");
 
-// Objeto donde se guardarán los datos del formulario
-const datos = {
-  nombre: "",
-  email: "",
-  mensaje: "",
-};
+const datos = { nombre: "", email: "", mensaje: "" };
 
-// Selección de inputs del formulario
-const nombre = document.querySelector("#nombre");
-const email = document.querySelector("#email");
-const mensaje = document.querySelector("#mensaje");
-
-// Lectura del texto en tiempo real
-nombre.addEventListener("input", leerTexto);
-email.addEventListener("input", leerTexto);
-mensaje.addEventListener("input", leerTexto);
-
-function leerTexto(e) {
-  datos[e.target.id] = e.target.value;
-  console.log(datos);
-}
-
-// Evento de submit del formulario
+// Selección de elementos
+const nombreInput = document.querySelector("#nombre");
+const emailInput = document.querySelector("#email");
+const mensajeInput = document.querySelector("#mensaje");
 const formulario = document.querySelector(".formulario");
 
-formulario.addEventListener("submit", function (evento) {
-  evento.preventDefault();
-
-  const { nombre, email, mensaje } = datos;
-
-  // Validación
-  if (nombre === "" || email === "" || mensaje === "") {
-    mostrarError("Todos los campos son obligatorios");
-    return;
-  }
-
-  mostrarOK("Formulario enviado correctamente");
-
-  // Reset del formulario visual
-  formulario.reset();
-
-  // Reset del objeto datos
-  datos.nombre = "";
-  datos.email = "";
-  datos.mensaje = "";
-});
-
-// Mostrar error
-function mostrarError(mensaje) {
-  const error = document.createElement("P");
-  error.textContent = mensaje;
-  error.classList.add("error");
-
-  formulario.appendChild(error);
-
-  // Eliminar mensaje después de 5 segundos
-  setTimeout(() => {
-    error.remove();
-  }, 5000);
+// Solo ejecutamos si los inputs existen en la página actual
+if (nombreInput && emailInput && mensajeInput) {
+    nombreInput.addEventListener("input", leerTexto);
+    emailInput.addEventListener("input", leerTexto);
+    mensajeInput.addEventListener("input", leerTexto);
 }
 
-// Mostrar mensaje correcto
-function mostrarOK(mensaje) {
-  const correcto = document.createElement("P");
-  correcto.textContent = mensaje;
-  correcto.classList.add("correcto");
+function leerTexto(e) {
+    datos[e.target.id] = e.target.value;
+}
 
-  formulario.appendChild(correcto);
+// Solo ejecutamos si el formulario existe
+if (formulario) {
+    formulario.addEventListener("submit", function (evento) {
+        evento.preventDefault();
+        const { nombre, email, mensaje } = datos;
 
-  // Eliminar después de 5 segundos
-  setTimeout(() => {
-    correcto.remove();
-  }, 5000);
+        if (nombre === "" || email === "" || mensaje === "") {
+            mostrarMensaje("Todos los campos son obligatorios", "error");
+            return;
+        }
+
+        mostrarMensaje("Formulario enviado correctamente", "correcto");
+        formulario.reset();
+        Object.keys(datos).forEach(key => datos[key] = "");
+    });
+}
+
+function mostrarMensaje(texto, clase) {
+    const alerta = document.createElement("P");
+    alerta.textContent = texto;
+    alerta.classList.add(clase);
+    formulario.appendChild(alerta);
+    setTimeout(() => alerta.remove(), 5000);
 }

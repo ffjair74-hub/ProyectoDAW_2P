@@ -1,5 +1,26 @@
 <?php include __DIR__ . '/../header.php'; ?>
 
+<?php if (isset($_GET['eliminado'])): ?>
+    <div class="correcto" style="margin: 20px auto; max-width: 600px;">
+        Tu cuenta ha sido eliminada permanentemente. ¡Esperamos verte pronto de nuevo, Autobot!
+    </div>
+<?php endif; ?>
+
+
+<?php if (isset($_GET['registrado']) && $_GET['registrado'] == 1): ?>
+    <div id="msg-exito" style="max-width: 800px; margin: 20px auto; padding: 0 20px;">
+        <div class="correcto" style="text-align: center; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+            ¡Registro exitoso! Bienvenido a la resistencia, ya puedes navegar.
+        </div>
+    </div>
+    <script>
+        setTimeout(() => {
+            const msg = document.getElementById('msg-exito');
+            if (msg) msg.style.display = 'none';
+        }, 5000);
+    </script>
+<?php endif; ?>
+
 <section class="hero">
     <div class="hero-content">
         <h1>Transformers — Universo Cinematográfico</h1>

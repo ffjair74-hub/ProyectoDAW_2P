@@ -1,17 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Sinopsis - Transformers</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <link rel="stylesheet" href="/Proyecto_DAW/public/css/style.css">
-    <link rel="stylesheet" href="/Proyecto_DAW/public/css/sinopsis.css">
-</head>
-
-<body>
-
-<section class="hero">
+<section class="hero"> 
     <div class="hero-content">
         <h1>Sinopsis de la Saga Transformers</h1>
         <p>Resumen de cada película del universo cinematográfico de TRANSFORMERS.</p>
@@ -77,7 +64,4 @@
         </div>
     </article>
 
-</section>
-
-</body>
-</html>
+</section> 

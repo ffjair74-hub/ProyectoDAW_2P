@@ -3,5 +3,6 @@
 </footer>
 <script src="/Proyecto_DAW/public/js/index.js"></script>
 <script src="/Proyecto_DAW/public/js/slideshow.js"></script>
+<script src="/Proyecto_DAW/public/js/menu.js"></script>
 </body>
 </html>
