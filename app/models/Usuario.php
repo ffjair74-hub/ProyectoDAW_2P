@@ -1,75 +1,65 @@
 <?php
-require_once __DIR__ . "/../../config/conexion.php";
+require_once __DIR__ . '/../config/database.php';
 
 class Usuario
 {
-    // OBTENER TODOS
-    public static function obtenerTodos()
-    {
-        $conn = Conexion::conectar();
-        $sql = "SELECT nombre, apellido, correo, contraseña FROM usuarios";
-        $res = $conn->query($sql);
+    private $conn;
+    private $table_name = "usuario";
 
-        $usuarios = [];
-        while ($fila = $res->fetch_assoc()) {
-            $usuarios[] = $fila;
-        }
-        return $usuarios;
+    public $id;
+    public $nombre;
+    public $apellido;
+    public $correo;
+    public $contrasena;
+
+    public function __construct()
+    {
+        $database = new Database();
+        $this->conn = $database->getConnection();
     }
 
-    // OBTENER POR CORREO
-    public static function obtenerPorId($correo)
+    // Registrar usuario
+    public function registrar()
     {
-        $conn = Conexion::conectar();
-        $correo = $conn->real_escape_string($correo);
+        // Usamos ` para nombres de tablas y columnas. Esto evita errores de nombres.
+        $query = "INSERT INTO `usuario` (`nombre`, `apellido`, `correo`, `contrasena`) 
+              VALUES (:nombre, :apellido, :correo, :contrasena)";
 
-        $sql = "SELECT nombre, apellido, correo, contraseña 
-                FROM usuarios 
-                WHERE correo='$correo' 
-                LIMIT 1";
+        $stmt = $this->conn->prepare($query);
 
-        $res = $conn->query($sql);
-        return $res->fetch_assoc(); // null si no existe
+        // Limpiamos los datos
+        $this->nombre = htmlspecialchars(strip_tags($this->nombre));
+        $this->apellido = htmlspecialchars(strip_tags($this->apellido));
+        $this->correo = htmlspecialchars(strip_tags($this->correo));
+
+        $stmt->bindParam(":nombre", $this->nombre);
+        $stmt->bindParam(":apellido", $this->apellido);
+        $stmt->bindParam(":correo", $this->correo);
+
+        // Encriptamos
+        $hash = password_hash($this->contrasena, PASSWORD_DEFAULT);
+        $stmt->bindParam(":contrasena", $hash);
+
+        return $stmt->execute();
     }
 
-    // CREAR
-    public static function crear($nombre, $apellido, $correo, $contraseña)
+
+    // Verificar login
+    public function login()
     {
-        $conn = Conexion::conectar();
-        $nombre = $conn->real_escape_string($nombre);
-        $apellido = $conn->real_escape_string($apellido);
-        $correo = $conn->real_escape_string($correo);
-        $contraseña = $conn->real_escape_string($contraseña);
-
-        $sql = "INSERT INTO usuarios (nombre, apellido, correo, contraseña)
-                VALUES ('$nombre', '$apellido', '$correo', '$contraseña')";
-
-        return $conn->query($sql);
+        $query = "SELECT * FROM " . $this->table_name . " WHERE correo = :correo";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(":correo", $this->correo);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    // ACTUALIZAR
-    public static function actualizar($correo, $nombre, $apellido)
+    public function buscarPorCorreo()
     {
-        $conn = Conexion::conectar();
-        $correo = $conn->real_escape_string($correo);
-        $nombre = $conn->real_escape_string($nombre);
-        $apellido = $conn->real_escape_string($apellido);
-
-        $sql = "UPDATE usuarios 
-                SET nombre='$nombre', apellido='$apellido' 
-                WHERE correo='$correo'";
-
-        return $conn->query($sql);
-    }
-
-    // ELIMINAR
-    public static function eliminar($correo)
-    {
-        $conn = Conexion::conectar();
-        $correo = $conn->real_escape_string($correo);
-
-        $sql = "DELETE FROM usuarios WHERE correo='$correo'";
-        return $conn->query($sql);
+        $sql = "SELECT * FROM usuario WHERE correo = :correo";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':correo', $this->correo);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 }
-

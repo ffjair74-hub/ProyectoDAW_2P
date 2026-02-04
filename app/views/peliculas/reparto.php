@@ -8,22 +8,7 @@
     <link rel="stylesheet" href="/Proyecto_DAW/public/css/reparto.css">
 </head>
 <body>
-
-<header class="header">
-    <nav class="nav">
-        <a class="brand" href="/Proyecto_DAW/public/index.php">Transformers</a>
-
-       <ul class="nav-list">
-        <li><a href="/Proyecto_DAW/public/index.php">Inicio</a></li>
-         <li><a href="/Proyecto_DAW/public/index.php#Galeria">Galería</a></li>
-        <li><a href="sinopsis.php">Sinopsis</a></li>
-        <li><a href="reparto.php">Reparto</a></li>
-        <li><a href="/Proyecto_DAW/public/index.php#contacto">Contacto</a></li>
-    </ul>
-
-
-    </nav>
-</header>
+ 
 
 <section class="reparto-section">
     <h1>Reparto de las 7 Películas</h1>
@@ -184,10 +169,6 @@
     </div>
 
 </section>
-
-<footer class="footer">
-    © 2025 · Transformers Fan Page — Contenido no oficial
-</footer>
 
 </body>
 </html>

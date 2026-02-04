@@ -1,66 +1,73 @@
 <?php
-require_once __DIR__ . "/../models/Usuario.php";
+require_once __DIR__ . '/../models/Usuario.php';
 
 class UsuarioController
 {
-    
-    // LISTAR
-    public function listar()
+
+    // Mostrar login
+    public function mostrarLogin()
     {
-        $usuarios = Usuario::obtenerTodos();
-        require __DIR__ . "/../views/usuarios/listar.php";
+        require_once __DIR__ . '/../views/usuarios/login.php';
     }
 
-    // FORM CREAR
-    public function crearForm()
+    // Procesar login
+    public function login()
     {
-        require __DIR__ . "/../views/usuarios/crear.php";
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+            $correo = $_POST['correo'];
+            $contrasena = $_POST['contrasena'];
+
+            $usuario = new Usuario();
+            $usuario->correo = $correo;
+
+            $data = $usuario->buscarPorCorreo();
+
+            if ($data && password_verify($contrasena, $data['contrasena'])) {
+                session_start();
+                $_SESSION['usuario'] = $data['nombre'];
+
+                header("Location: /Proyecto_DAW/public/index.php");
+                exit;
+            } else {
+                $error = "Correo o contraseña incorrectos";
+                require_once __DIR__ . '/../views/usuarios/login.php';
+            }
+        }
     }
 
-    // CREAR
-    public function crear()
+    // Mostrar registro
+    public function mostrarRegistro()
     {
-        $nombre = $_POST["nombre"] ?? "";
-        $apellido = $_POST["apellido"] ?? "";
-        $correo = $_POST["correo"] ?? "";
-        $contraseña = $_POST["contraseña"] ?? "";
-
-        Usuario::crear($nombre, $apellido, $correo, $contraseña);
-
-        header("Location: index.php?url=usuarios/listar");
-        exit;
+        require_once __DIR__ . '/../views/usuarios/registro.php';
     }
 
-    // FORM EDITAR
-    public function editarForm()
+    // Procesar registro
+    public function registrar()
     {
-        $correo = $_GET["correo"] ?? "";
-        $usuario = Usuario::obtenerPorId($correo);
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-        require __DIR__ . "/../views/usuarios/editar.php";
+            // En UsuarioController.php
+            $usuario = new Usuario();
+            $usuario->nombre = $_POST['nombre'];
+            $usuario->apellido = $_POST['apellido'];
+            $usuario->correo = $_POST['correo'];
+            $usuario->contrasena = $_POST['contrasena']; // El nombre debe coincidir con la propiedad de la clase
+
+            if ($usuario->registrar()) {
+                echo "Registro exitoso";
+            } else {
+                echo "Error al registrar";
+            }
+        }
     }
 
-    // ACTUALIZAR
-    public function actualizar()
+    // Logout
+    public function logout()
     {
-        $correo = $_POST["correo"] ?? "";
-        $nombre = $_POST["nombre"] ?? "";
-        $apellido = $_POST["apellido"] ?? "";
-
-        Usuario::actualizar($correo, $nombre, $apellido);
-
-        header("Location: index.php?url=usuarios/listar");
-        exit;
-    }
-
-    // ELIMINAR
-    public function eliminar()
-    {
-        $correo = $_GET["correo"] ?? "";
-        Usuario::eliminar($correo);
-
-        header("Location: index.php?url=usuarios/listar");
+        session_start();
+        session_destroy();
+        header("Location: /Proyecto_DAW/public/index.php");
         exit;
     }
 }
-

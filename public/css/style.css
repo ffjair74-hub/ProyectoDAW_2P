@@ -322,3 +322,25 @@ img{
     text-transform: uppercase;
     margin-top: 1rem;
 }
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+  z-index: 999;
+}
+
+.modal-content {
+  background: #0030c8;
+  width: 320px;
+  margin: 12% auto;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.close {
+  float: right;
+  font-size: 22px;
+  cursor: pointer;
+}
