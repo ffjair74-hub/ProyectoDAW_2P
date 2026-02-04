@@ -1,7 +1,7 @@
 <?php
 class Database {
     private $host = "localhost";
-    private $db_name = "usuarios";
+    private $db_name = "proyectodaw2p";
     private $username = "root"; // Cambia si tienes otro usuario
     private $password = "";
     public $conn;

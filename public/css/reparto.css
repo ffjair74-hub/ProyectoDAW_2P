@@ -1,109 +1,89 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background: linear-gradient(to bottom, black, #0a0a30);
-    color: white;
-    text-align: center;
+/* REPARTO.CSS - Mismo estilo que Sinopsis */
+
+.reparto-section {
+    background-color: var(--bg-oscuro);
+    padding: 60px 20px;
+    min-height: 100vh;
 }
 
-/* Header */
-.header {
-    background: #000;
-    padding: 1rem;
-    border-bottom: 2px solid #0040ff;
+.reparto-container {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.brand{
-  font-size: 1.6rem;
-  font-weight: bold;
-  color:#0040ff;
-  text-decoration: none;
-}
-
-.nav {
-    display: flex;
-    justify-content: space-between;
-    max-width: 1100px;
-    margin: auto;
-    align-items: center;
-}
-.nav-list {
-    list-style: none;
-    display: flex;
-    gap: 1rem;
-}
-.nav-list a {
-    color: white;
-    text-decoration: none;
-    padding: .5rem 1rem;
-}
-.nav-list .activo {
-    background: #0040ff;
-    border-radius: 4px;
-}
-
-/* Título */
 .reparto-section h1 {
-    margin-top: 2rem;
-    font-size: 2.3rem;
-    color: #5ca0ff;
+    font-size: 3rem;
+    color: var(--azul-acero);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
 }
 
-.descripcion {
-    color: #ccc;
-    margin-bottom: 2rem;
+.descripcion-reparto {
+    color: var(--texto-suave);
+    font-size: 1.2rem;
+    margin-bottom: 50px;
 }
 
-/* Película */
-.pelicula {
-    margin-bottom: 3rem;
-}
-.pelicula h2 {
-    color: #3d8bff;
-    margin-bottom: 1rem;
-}
-
-/* Cards */
-.actores {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1.5rem;
+.titulo-pelicula {
+    color: var(--azul-acero);
+    text-align: left;
+    border-left: 5px solid var(--azul-acero);
+    padding-left: 20px;
+    margin: 40px 0 30px 0;
+    font-size: 1.8rem;
 }
 
-.card {
-    background: #111228;
-    width: 200px;
-    padding: 1rem;
-    border-radius: 10px;
-    border: 2px solid #003cff;
-    box-shadow: 0 0 10px rgba(0, 64, 255, 0.4);
-    transition: transform .25s ease;
+/* Grid de Actores */
+.actores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
 }
 
-.card:hover {
-    transform: scale(1.06);
+/* La Card - Estilo Sinopsis */
+.actor-card {
+    background: var(--bg-acero);
+    border: 1px solid var(--borde);
+    border-radius: 15px;
+    overflow: hidden; /* Para que la imagen respete las esquinas redondeadas */
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
-.card img {
+.actor-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--azul-acero);
+    box-shadow: 0 15px 30px rgba(88, 166, 255, 0.15);
+}
+
+/* Ajuste de imagen - MUY IMPORTANTE */
+.actor-card img {
     width: 100%;
-    border-radius: 6px;
+    height: 300px; /* Todas las fotos del mismo alto */
+    object-fit: cover; /* Evita que la foto se estire feo */
+    display: block;
+    border-bottom: 1px solid var(--borde);
 }
 
-.card h3 {
-    margin: .5rem 0 0.2rem;
-    color: #73a4ff;
+.actor-info {
+    padding: 20px;
 }
 
-.card p {
-    color: #c0c0c0;
-    font-size: 0.9rem;
+.actor-info h3 {
+    color: var(--azul-acero);
+    font-size: 1.25rem;
+    margin: 0 0 5px 0;
 }
 
-/* Footer */
-.footer {
-    margin-top: 2rem;
-    padding: 1rem;
-    background: #000;
-    border-top: 2px solid #0040ff;
+.actor-info p {
+    color: var(--texto-suave);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .reparto-section h1 { font-size: 2rem; }
+    .actores-grid { grid-template-columns: 1fr; }
 }
